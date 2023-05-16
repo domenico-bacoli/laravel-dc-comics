@@ -15,7 +15,56 @@ class ComicController extends Controller
     public function index()
     {   
         $comics = Comic::all();
-        return view('comics/index', compact('comics'));
+
+        $footerLists = [
+            [
+                "title" => "dc comics",
+                "links" => [
+                    'Characters',
+                    'Comics',
+                    'Movies',
+                    'Tv',
+                    'Games',
+                    'Videos',
+                    'News',
+                ] 
+            ],
+            [
+                "title" => "shop",
+                "links" => [
+                    "Shop DC",
+                    "Shop DC collectibles"
+                ]
+            ],
+            [
+                "title" => "dc",
+                "links" => [
+                    "Terms Of Use",
+                    "Privacy Policy(New)",
+                    "Ad Choices",
+                    "Advertising",
+                    "Jobs",
+                    "Subscriptions",
+                    "Talent Workshops",
+                    "CPSC Certificates",
+                    "Ratings",
+                    "Shop Help",
+                    "Contact Us"
+                ]
+            ],
+            [
+                "title" => "sites",
+                "links" => [
+                    "DC",
+                    "MAD Magazine",
+                    "DC Kids",
+                    "DC Universe",
+                    "DC Power Visa"
+                ]
+            ]
+        ];
+
+        return view('comics/index', compact('comics', 'footerLists'));
     }
 
     /**

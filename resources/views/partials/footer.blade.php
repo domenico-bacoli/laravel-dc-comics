@@ -6,7 +6,7 @@
                 <div class="col">
                     <strong class="list-title">{{$footerList['title']}}</strong>
                     <ul>
-                        @foreach ($footerList['links'] as $footerLink )
+                        @foreach ($footerList['links'] as $footerLink)
                         <li>{{$footerLink}}</li> 
                         @endforeach
                          

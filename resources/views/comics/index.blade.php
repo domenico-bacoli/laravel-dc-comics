@@ -20,7 +20,8 @@
             </div>
         </div>
         <div class="button-load">
-            <button>LOAD MORE</button>
+            <button class="me-2">LOAD MORE</button>
+            <a href="{{route('comics.create')}}"><button>AGGIUNGI</button></a>
         </div>
     </div>
     <div class="main-shop">

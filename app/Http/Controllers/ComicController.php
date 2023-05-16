@@ -16,55 +16,7 @@ class ComicController extends Controller
     {   
         $comics = Comic::all();
 
-        $footerLists = [
-            [
-                "title" => "dc comics",
-                "links" => [
-                    'Characters',
-                    'Comics',
-                    'Movies',
-                    'Tv',
-                    'Games',
-                    'Videos',
-                    'News',
-                ] 
-            ],
-            [
-                "title" => "shop",
-                "links" => [
-                    "Shop DC",
-                    "Shop DC collectibles"
-                ]
-            ],
-            [
-                "title" => "dc",
-                "links" => [
-                    "Terms Of Use",
-                    "Privacy Policy(New)",
-                    "Ad Choices",
-                    "Advertising",
-                    "Jobs",
-                    "Subscriptions",
-                    "Talent Workshops",
-                    "CPSC Certificates",
-                    "Ratings",
-                    "Shop Help",
-                    "Contact Us"
-                ]
-            ],
-            [
-                "title" => "sites",
-                "links" => [
-                    "DC",
-                    "MAD Magazine",
-                    "DC Kids",
-                    "DC Universe",
-                    "DC Power Visa"
-                ]
-            ]
-        ];
-
-        return view('comics/index', compact('comics', 'footerLists'));
+        return view('comics/index', compact('comics'));
     }
 
     /**
@@ -74,7 +26,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics/create');
     }
 
     /**
@@ -85,7 +37,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData =  $request->all();
+
+        $newComic = new Comic();
+        $newComic->title = $formData['title'];
+        $newComic->description = $formData['description'];
+        $newComic->thumb = $formData['thumb'];
+        $newComic->price = $formData['price'];
+        $newComic->series = $formData['series'];
+        $newComic->sale_date = $formData['sale_date'];
+        $newComic->type = $formData['type'];
+
+        $newComic->save();
+
+        return redirect()->route('comics.show', $newComic->id);
     }
 
     /**

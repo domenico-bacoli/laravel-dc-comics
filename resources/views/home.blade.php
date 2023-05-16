@@ -2,8 +2,8 @@
 
 @section('content')
 
-<main>
-<div class="container">
+<main class="home-container">
+<div class="container text-center">
     <a href="{{route('comics.index')}}">Vai all'elenco dei comics</a>
 </div>
 </main>

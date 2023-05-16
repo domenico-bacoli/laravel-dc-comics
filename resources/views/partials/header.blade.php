@@ -2,11 +2,12 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="logo comics dc">
+                <a href="{{route('homepage')}}"><img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="logo comics dc"></a>
+                    
             </div>  
             <ul>
                 <li><a href="#">characters</a></li>
-                <li><a href="#">comics</a></li>
+                <li><a href="{{route('comics.index')}}">comics</a></li>
                 <li><a href="#">movies</a></li>
                 <li><a href="#">tv</a></li>
                 <li><a href="#">games</a></li>

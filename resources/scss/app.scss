@@ -1,0 +1,298 @@
+@import '~bootstrap/scss/bootstrap';
+
+// START HEADER STYLE
+header{
+    nav {
+        height: 80px;
+        background-color: white;
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+    
+            .logo {
+                display: flex;
+                align-items: center;
+    
+                img {
+                    width: 70px;
+                }
+            }
+        }
+    
+        ul {
+            display: flex;
+            gap: 22px;
+            font-size: .7em;
+            font-weight: bold;
+            height: 100%;
+        }
+    
+        li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            text-transform: uppercase;
+
+            a{
+                text-decoration: none;
+                color: rgb(37, 37, 37);
+            }
+
+            i{
+                padding-left: 8px;
+                color: rgb(2, 119, 248);
+            }
+
+            &:nth-child(2){
+                color: rgb(2, 119, 248);
+                border-top: 3px solid transparent;
+                border-bottom: 3px solid rgb(2, 119, 248);
+            }
+
+            &:nth-child(10)::after{
+                font-family: "Font Awesome 5 Free";
+                content: "\f0d7";
+                margin-left: 8px;
+                color: rgb(2, 119, 248);
+            }
+        }
+
+        .search{
+            display: flex;
+            align-items: center;
+
+            input{
+                border: none;
+                border-bottom: 3px solid rgb(2, 119, 248);
+                width: 100px;
+            }
+        }
+        ::placeholder{
+            text-align: end;
+            padding-right: 6px;
+        }
+    }
+}
+// END HEADER STYLE
+
+// START MAIN STYLE
+main {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(26, 26, 26);
+
+    .main-image {
+        position: relative;
+        height: 280px;
+        width: 100%;
+        background-image: url(../img/jumbotron.jpg);
+        background-size: cover;
+    }
+
+    .container {
+        position: relative;
+
+        .main-title-absolute {
+            position: absolute;
+            top: -24px;
+            left: -14px;
+            color: white;
+            background-color: rgb(2, 119, 248);
+            padding: 8px 22px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .card-series-container{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 0 40px;
+
+            .card-container {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 0 50px;
+                
+                .card{
+                    display: flex;
+                    flex-direction: column;
+                    width: calc(100% / 6 - (20px / 6 * 5));
+                    background-color: rgb(26, 26, 26);
+
+                    .card-image {
+                        
+                        height: 150px;
+                        overflow: hidden;
+                
+                        img {
+                            width: 100%;
+                        }
+                    }
+                
+                    .card-title {
+                        color: white;
+                        text-transform: uppercase;
+                        font-size: 0.7em;
+                        padding-top: 8px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .button-load {
+        text-align: center;
+        padding-bottom: 16px;
+
+        button {
+            background-color: rgb(2, 119, 248);
+            color: white;
+            font-weight: bold;
+            padding: 10px 30px;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .main-shop{
+        height: 120px;
+        width: 100%;
+        background-color: rgb(2, 119, 248);
+
+        .container{
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            height: 100%;           
+
+            .shop-item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.7em;
+                color: white;
+                font-weight: bold;
+    
+                & img {
+                    width: 38px;
+                }
+    
+                &:nth-child(4) img {
+                    width: 28px;
+                }
+
+                .shop-item-text{
+                    text-transform: uppercase;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+}
+
+// END MAIN STYLE
+
+// START FOOTER STYLE
+footer {
+
+    .footer-top{
+        background-image: url(../img/footer-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container.top{
+        background-image: url(../img/dc-logo-bg.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 50%;
+    }
+
+    .footer-list {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 30px;
+        padding-top: 30px;
+        height: 320px;
+
+        ul{
+            padding: 0;
+            list-style-type: none;
+
+            li {
+                color: rgb(155, 155, 155);
+                font-size: 0.7em;
+            }
+        }
+
+        .col {
+            
+            strong {
+                text-align: center;
+                color: white;
+                text-transform: uppercase;
+            }
+
+            .list-title {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .footer-bottom{
+        background-color: rgb(48, 48, 48);
+        height: 100px;
+
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer-button {
+            button {
+                padding: 10px 16px;
+                border: 2px solid rgb(2, 119, 248);
+                background-color: rgb(48, 48, 48);
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        .footer-social-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            span {
+                color: rgb(2, 119, 248);
+                font-weight: bold;
+            }
+
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// END FOOTER STYLE

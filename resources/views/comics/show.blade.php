@@ -36,7 +36,13 @@
                 </div>
             </section>
             <div class="button-edit">
-                <a class="text-center" href="{{route('comics.edit', $comic->id)}}"><button class="text-center">MODIFICA</button></a>
+                <a href="{{route('comics.edit', $comic->id)}}" class="me-3"><button>Modifica</button></a>
+
+                <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Elimina</button>
+                </form>
             </div>
             
 

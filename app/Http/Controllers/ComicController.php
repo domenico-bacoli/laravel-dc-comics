@@ -107,7 +107,9 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Comic $comic)
-    {
-        //
+    {   
+        // con questo metodo eliminiamo in modo permanente il dato dal database
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

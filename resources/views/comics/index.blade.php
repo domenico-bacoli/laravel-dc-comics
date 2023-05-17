@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="button-load">
-            <button class="me-2">LOAD MORE</button>
+            <button class="me-3">LOAD MORE</button>
             <a href="{{route('comics.create')}}"><button>AGGIUNGI</button></a>
         </div>
     </div>
@@ -46,12 +46,6 @@
                 <img src=" {{Vite::asset('resources/img/buy-dc-power-visa.svg')}} " alt="dc power visa">
                 <div class="shop-item-text">dc power visa</div>
             </div>
-            {{-- @foreach ($shopItems as $shopItem)
-            <div class="shop-item"> 
-                <img src="{{ Vite::asset($shopItem['img'])}}" alt="{{$shopItem['text']}}">
-                <div class="shop-item-text">{{$shopItem['text']}}</div>
-            </div>
-            @endforeach --}}
         </div>
     </div>
 </main>

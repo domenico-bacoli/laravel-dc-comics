@@ -40,13 +40,20 @@ class ComicController extends Controller
         $formData =  $request->all();
 
         $newComic = new Comic();
-        $newComic->title = $formData['title'];
-        $newComic->description = $formData['description'];
-        $newComic->thumb = $formData['thumb'];
-        $newComic->price = $formData['price'];
-        $newComic->series = $formData['series'];
-        $newComic->sale_date = $formData['sale_date'];
-        $newComic->type = $formData['type'];
+
+        // Metodo stabìndard dove andremo a scrivere più codice 
+        // $newComic->title = $formData['title'];
+        // $newComic->description = $formData['description'];
+        // $newComic->thumb = $formData['thumb'];
+        // $newComic->price = $formData['price'];
+        // $newComic->series = $formData['series'];
+        // $newComic->sale_date = $formData['sale_date'];
+        // $newComic->type = $formData['type'];
+
+        // comando più veloce per riempire una riga nel db
+        // ha bisogno della proprietà protected $fillable nel model comic per funzionare
+        // questo sarà utile anche per l'update
+        $newComic->fill($formData);
 
         $newComic->save();
 
@@ -72,7 +79,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics/edit', compact('comic'));
     }
 
     /**
@@ -84,7 +91,13 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $formData = $request->all();
+
+        //Funziona solo se abbiamo inserito nel model la proprietà protected $fillable
+        $comic->update($formData);
+
+        $comic->save();
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

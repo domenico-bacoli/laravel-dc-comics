@@ -1,5 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
+button{
+    background-color: rgb(2, 119, 248);
+    color: white;
+    font-weight: bold;
+    padding: 8px 30px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
 // START HEADER STYLE
 header{
     nav {
@@ -35,6 +50,7 @@ header{
             align-items: center;
             cursor: pointer;
             text-transform: uppercase;
+            transition: 0.1s ease;
 
             a{
                 text-decoration: none;
@@ -48,8 +64,6 @@ header{
 
             &:nth-child(2){
                 color: rgb(2, 119, 248);
-                border-top: 3px solid transparent;
-                border-bottom: 3px solid rgb(2, 119, 248);
             }
 
             &:nth-child(10)::after{
@@ -57,6 +71,11 @@ header{
                 content: "\f0d7";
                 margin-left: 8px;
                 color: rgb(2, 119, 248);
+            }
+
+            &:hover{
+                border-top: 4px solid transparent;
+                border-bottom: 4px solid rgb(2, 119, 248);
             }
         }
 
@@ -154,15 +173,15 @@ main {
         text-align: center;
         padding-bottom: 16px;
 
-        button {
-            background-color: rgb(2, 119, 248);
-            color: white;
-            font-weight: bold;
-            padding: 10px 30px;
-            border-radius: 2px;
-            border: none;
-            cursor: pointer;
-        }
+        // button {
+        //     background-color: rgb(2, 119, 248);
+        //     color: white;
+        //     font-weight: bold;
+        //     padding: 10px 30px;
+        //     border-radius: 2px;
+        //     border: none;
+        //     cursor: pointer;
+        // }
     }
 
     .main-shop{
@@ -347,7 +366,7 @@ main.show-main{
             height: 50px;
             color: white;
             margin-bottom: 14px;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid rgb(37, 37, 37);
 
             .price{
                 flex-grow: 1;
@@ -358,7 +377,7 @@ main.show-main{
                 display: flex;
                 align-items: center;
                 padding: 0 10px;
-                border-right: 1px solid black;
+                border-right: 1px solid rgb(37, 37, 37);
                 height: 100%;    
             }
             
@@ -400,6 +419,10 @@ main.show-main{
     background-color: white;
 }
 
-.form-container{
-    width: 600px;
+.button-edit{
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    margin-bottom: 30px;
+   
 }

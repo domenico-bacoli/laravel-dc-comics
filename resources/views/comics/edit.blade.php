@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <main class="home-container">
+    <main class="home-container py-5">
         <form class="w-50" action="{{route('comics.update', $comic->id)}}" method="POST">
             @csrf
             @method('PUT')
@@ -52,7 +52,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="sale_date">Data di vendita</label>
+                <label for="sale_date">Data di lancio</label>
                 <input class="form-control @error('sale_date') is-invalid @enderror" type="text" id="sale_date" name="sale_date" value="{{old('sale_date') ?? $comic->sale_date}}">
                 @error('sale_date')
                 <div class="invalid-feedback">

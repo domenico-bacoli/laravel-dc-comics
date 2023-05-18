@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
+// START COMMON
 button{
     background-color: rgb(2, 119, 248);
     color: white;
@@ -14,6 +15,13 @@ button{
         opacity: 0.8;
     }
 }
+
+label{
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+    text-transform: uppercase;
+}
+// END COMMON 
 
 // START HEADER STYLE
 header{
@@ -171,16 +179,6 @@ main {
     .button-load {
         text-align: center;
         padding-bottom: 16px;
-
-        // button {
-        //     background-color: rgb(2, 119, 248);
-        //     color: white;
-        //     font-weight: bold;
-        //     padding: 10px 30px;
-        //     border-radius: 2px;
-        //     border: none;
-        //     cursor: pointer;
-        // }
     }
 
     .main-shop{
@@ -412,9 +410,9 @@ main.show-main{
 
 // END SHOW STYLE
 
+// CREATE AND EDIT STYLE
 .home-container{
     width: 100%;
-    padding: 100px 0;
     background-color: white;
 }
 
@@ -422,6 +420,6 @@ main.show-main{
     display: flex;
     justify-content: center;
     width: 65%;
-    margin-bottom: 30px;
-   
+    margin-bottom: 30px; 
 }
+// END CREATE AND EDIT STYLE

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -120,14 +121,43 @@ class ComicController extends Controller
         //in caso NON le rispettino (ne basta anche solo una) fa tornare l'utente 
         //alla rotta precedente, passandogli un array di errori
     private function validation($request) {
-            $request->validate([
-            'title' => 'required|max:50|min:4',
+        // Validazione che restituisce errori standard e quindi in inglese
+        //     $request->validate([
+        //     'title' => 'required|max:50|min:4',
+        //     'description' => 'required',
+        //     'thumb' => 'required',
+        //     'price' => 'required|max:10',
+        //     'series' => 'required|max:20',
+        //     'sale_date' => 'required|max:10',
+        //     'type' => 'required|max:20'
+        // ]);
+
+        // restituiamo ora i messaggi in italiano:
+        $formData = $request->all();
+            //qui inseriamo l'array di regole ( le stesse che abbiamo inserito nella 
+            //versione standard che restituisce gli errori in inglese)
+        $validator = Validator::make($formData, [
+            'title' => 'required|max:50|',
             'description' => 'required',
             'thumb' => 'required',
             'price' => 'required|max:10',
             'series' => 'required|max:20',
             'sale_date' => 'required|max:10',
             'type' => 'required|max:20'
-        ]);
+        ], [
+            //qui inseriamo i messaggi da comunicare all'utente per ogni errore che vogliamo modificare
+            'title.required' => 'inserisci un titolo',
+            'title.max' => 'massimo 50 caratteri',
+            'description.required' => 'inserisci una descizione',
+            'thumb.required' => 'inserisci una url per la cover',
+            'price.required' => 'inserisci un prezzo',
+            'price.max' => 'massimo 10 caratteri',
+            'series.required' => 'inserisci una serie',
+            'series.max' => 'massimo 20 caratteri',
+            'sale_date.required' => 'inserisci una data di lancio',
+            'sale_date' =>'massimo 10 caratteri',
+            'type.required' => 'inserisci un tipo',
+            'type.max' => 'massimo 20 caratteri',
+        ])->validate();
     }
 }

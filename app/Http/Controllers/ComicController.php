@@ -37,6 +37,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validation($request);
+
         $formData =  $request->all();
 
         $newComic = new Comic();
@@ -90,7 +92,8 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Comic $comic)
-    {
+    {   
+        $this->validation($request);
         $formData = $request->all();
 
         //Funziona solo se abbiamo inserito nel model la proprietà protected $fillable
@@ -111,5 +114,20 @@ class ComicController extends Controller
         // con questo metodo eliminiamo in modo permanente il dato dal database
         $comic->delete();
         return redirect()->route('comics.index');
+    }
+
+        //controlla che i parametri del form rispettino le regole che indico
+        //in caso NON le rispettino (ne basta anche solo una) fa tornare l'utente 
+        //alla rotta precedente, passandogli un array di errori
+    private function validation($request) {
+            $request->validate([
+            'title' => 'required|max:50|min:4',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required|max:10',
+            'series' => 'required|max:20',
+            'sale_date' => 'required|max:10',
+            'type' => 'required|max:20'
+        ]);
     }
 }
